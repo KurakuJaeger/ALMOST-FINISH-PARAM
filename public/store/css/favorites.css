@@ -1,0 +1,21 @@
+.favorite-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-remove {
+  background-color: transparent;
+  color: #888;  
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.btn-remove:hover {
+  color: #cc0000;
+}

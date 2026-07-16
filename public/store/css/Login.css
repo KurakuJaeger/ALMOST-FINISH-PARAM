@@ -1,0 +1,98 @@
+/* Full Screen Background Image */
+body { 
+    /* REMEMBER TO REPLACE 'Welcome.png' WITH YOUR ACTUAL IMAGE FILENAME */
+    background-image: url('../images/Welcome.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #3E0703; /* Fallback color */
+    
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #3E0703; 
+}
+
+/* Floating Card Styling */
+/* Floating Card Styling */
+.card-custom { 
+    background-color: #FFF0C4; 
+    border-radius: 1.5rem; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4); 
+    border: none;
+    width: 100%;
+    
+    /* Adjusted slightly down from 650px to give it more room */
+    max-width: 600px; 
+    
+    /* THE MAGIC LINE: This forces a 5% gap on the left/right, and a 2rem gap on top/bottom */
+    margin: 2rem 15vw !important; 
+}
+
+/* Form Inputs */
+.form-control {
+    border-radius: 8px;
+    background-color: #FAFAFA; /* Slightly gray inputs */
+    border: 1px solid #ced4da;
+    padding: 0.75rem 1rem; /* Added slightly more padding inside the text boxes to match the larger card */
+}
+.form-control:focus { 
+    border-color: #FCB53B; 
+    box-shadow: 0 0 0 0.25rem rgba(252, 181, 59, 0.25); 
+    background-color: #FFFFFF;
+}
+
+/* Custom Button Styling - Dark Red */
+.btn-custom { 
+    background-color: #3E0703; 
+    color: #ffffff; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem; /* Slightly larger button text */
+}
+
+/* Button Hover - Yellow */
+.btn-custom:hover { 
+    background-color: #FCB53B; 
+    color: #3E0703; 
+}
+
+/* Social Buttons */
+.btn-social {
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #555;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.btn-social:hover {
+    background-color: #FFF0C4; /* Cream hover */
+    color: #3E0703;
+}
+
+/* Checkbox Focus Styling */
+.form-check-input:checked {
+    background-color: #3E0703;
+    border-color: #3E0703;
+}
+
+/* Custom Link Styling */
+.custom-link {
+    color: #3E0703; 
+    font-weight: bold;
+    text-decoration: underline;
+}
+.custom-link:hover {
+    color: #FCB53B; 
+}
+
+/* Logo styling */
+.logo-img {
+    max-height: 85px; /* Made the logo slightly bigger to match the new card size */
+    margin-bottom: 0.5rem;
+}

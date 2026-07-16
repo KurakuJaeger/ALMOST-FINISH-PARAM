@@ -1,0 +1,34 @@
+Options -Indexes
+DirectoryIndex index.php
+
+RewriteEngine On
+
+# Let Hostinger/Let's Encrypt reach domain validation files.
+RewriteRule ^\.well-known/ - [L]
+
+# Never expose application internals when the whole project is in public_html.
+RewriteRule ^(?:src|db|vendor)(?:/|$) - [F,L,NC]
+RewriteRule ^(?:\.env(?:\..*)?|\.gitignore|README(?:\.md)?)$ - [F,L,NC]
+
+# Clean, stable routes. These work at a domain root or in any subdirectory.
+RewriteRule ^$ public/index.php [L]
+RewriteRule ^login/?$ public/login.php [L,QSA,NC]
+RewriteRule ^forgot-password/?$ public/forgot-password.php [L,QSA,NC]
+RewriteRule ^reset-password/?$ public/reset-password.php [L,QSA,NC]
+RewriteRule ^register/?$ public/register.php [L,QSA,NC]
+RewriteRule ^verify-email/?$ public/verify-email.php [L,QSA,NC]
+RewriteRule ^verify-pending/?$ public/verification-pending.php [L,QSA,NC]
+RewriteRule ^apply/?$ public/apply.php [L,QSA,NC]
+RewriteRule ^store/?$ public/store/index.php [L,QSA,NC]
+RewriteRule ^logout/?$ public/logout.php [L,QSA,NC]
+RewriteRule ^setup-account/?$ public/setup-account.php [L,QSA,NC]
+RewriteRule ^admin/?$ public/AdminDashboard/admin.php [L,QSA,NC]
+RewriteRule ^delivery/?$ public/DeliveryDashboard/delivery.php [L,QSA,NC]
+RewriteRule ^support/?$ public/CustomerServiceDashboard/support.php [L,QSA,NC]
+RewriteRule ^api/?$ public/api.php [L,QSA,NC]
+RewriteRule ^delivery-api/?$ public/delivery-api.php [L,QSA,NC]
+RewriteRule ^support-api/?$ public/customer-service-api.php [L,QSA,NC]
+
+# Keep existing public asset/file paths working without exposing /public in URLs.
+RewriteRule ^public/ - [L]
+RewriteRule ^(.+)$ public/$1 [L]

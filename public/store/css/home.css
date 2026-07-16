@@ -1,0 +1,39 @@
+.hero-full {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-cream);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-full-img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.btn-shop-overlay {
+  position: absolute;
+  bottom: 8%;
+  background-color: var(--primary-maroon);
+  color: var(--bg-white);
+  padding: 16px 40px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(252, 181, 56, 0.5);
+}
+
+.btn-shop-overlay:hover {
+  background-color: var(--accent-gold);
+  color: var(--primary-maroon);
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(252, 181, 56, 0.9);
+}

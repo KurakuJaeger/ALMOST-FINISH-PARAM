@@ -1,0 +1,219 @@
+body {
+    background-color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    color: #3E0703;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Container Spacing */
+.main-container {
+    background-color: #FFFFFF;
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+/* Brand Text & Colors */
+.brand-accent {
+    color: #3E0703;
+    font-weight: 700;
+}
+
+.text-gold {
+    color: #FCB53B;
+}
+
+.bg-cream {
+    background-color: #FFF0C4;
+}
+
+/* Subtitle & Headers */
+.section-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #888888;
+    font-weight: 600;
+}
+
+/* Hero Story Images */
+.story-img-main {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.story-img-sub {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Individual Square Boxes for Statistics */
+.stat-square-box {
+    background-color: #FFF0C4;
+    border: 1px solid #E9ECEF;
+    border-radius: 14px;
+    padding: 1.5rem 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-square-box:hover {
+    transform: translateY(-5px);
+    border-color: #FCB53B;
+    box-shadow: 0 8px 20px rgba(252, 181, 59, 0.2) !important;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #3E0703;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 8px;
+    color: #000000;
+}
+
+/* Product Feature Section */
+.feature-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.feature-icon-box {
+    width: 48px;
+    height: 48px;
+    background-color: #FFF0C4;
+    color: #3E0703;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+/* Team Member Card Styling */
+.team-member-box {
+    background-color: #FFFFFF;
+    border: 1px solid #E9ECEF;
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-member-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Image Container */
+.team-img-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 270px;
+    background-color: #F8F9FA;
+}
+
+.team-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.team-member-box:hover .team-img-container img {
+    transform: scale(1.04);
+}
+
+.social-overlay {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.team-member-box:hover .social-overlay {
+    opacity: 1;
+}
+
+.social-overlay a {
+    width: 32px;
+    height: 32px;
+    background-color: #FFFFFF;
+    color: #3E0703;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-overlay a:hover {
+    background-color: #3E0703;
+    color: #FFF0C4;
+}
+
+/* BADGE STYLES */
+
+/* 1. Red Box with Yellow Font (Seller / Buyer Part) */
+.badge-red-side {
+    background-color: #3E0703 !important;
+    color: #FCB53B !important;
+    font-size: 0.72rem;
+    font-weight: 700;
+    border-radius: 6px;
+    border: 1px solid #3E0703;
+    display: inline-block;
+}
+
+/* 2. Separate Yellow Boxes (Individual Roles) */
+.badge-yellow-role {
+    background-color: #FCB53B !important;
+    color: #3E0703 !important;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid #FCB53B;
+    display: inline-block;
+}
+
+/* Single Line Info Details */
+.team-info-details {
+    margin-top: auto;
+}
+
+.team-info-details p {
+    color: #333333;
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+.text-break {
+    word-break: break-all;
+}
+

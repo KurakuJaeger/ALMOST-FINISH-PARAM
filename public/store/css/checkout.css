@@ -1,0 +1,53 @@
+.checkout-section { max-width: 1440px; margin: 0 auto; padding: 36px clamp(20px, 5vw, 72px); }
+.checkout-heading { margin-bottom: 28px; }
+.checkout-heading .section-title { margin: 5px 0 18px; color: var(--primary-maroon); font-family: Georgia, 'Times New Roman', serif; }
+.checkout-eyebrow { color: #98640a; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.checkout-steps { display: flex; gap: 8px; max-width: 520px; }
+.checkout-steps span { flex: 1; padding-top: 10px; border-top: 3px solid #ddd; color: #888; font-size: 12px; font-weight: 700; }
+.checkout-steps .complete, .checkout-steps .active { border-color: var(--accent-gold); color: var(--primary-maroon); }
+.checkout-alert { margin-bottom: 22px; padding: 14px 16px; border: 1px solid #efb1ad; border-radius: 8px; color: #851b16; background: #fff0ef; }
+.checkout-layout { display: flex; gap: 42px; align-items: flex-start; margin: 30px 0 60px; }
+.checkout-form-area { flex: 1.5; }
+.form-section { margin-bottom: 28px; padding: 26px; border: 1px solid #e6dfde; border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgba(62, 7, 3, .04); }
+.form-section-heading { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+.form-section-heading > span { width: 32px; height: 32px; flex: 0 0 32px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: var(--primary-maroon); font-weight: 800; }
+.form-title { margin: 2px 0 4px; color: var(--primary-maroon); font: 20px Georgia, 'Times New Roman', serif; }
+.form-section-heading p { margin: 0; color: #746765; font-size: 13px; line-height: 1.5; }
+.form-group { display: flex; flex-direction: column; width: 100%; margin-bottom: 15px; }
+.form-row { display: flex; gap: 20px; }
+.form-row .form-group { flex: 1; }
+.form-group-small { max-width: 180px; }
+label { margin-bottom: 8px; color: var(--text-dark); font-size: 14px; font-weight: 600; }
+.form-input { padding: 12px 15px; border: 1px solid #cfc4c2; border-radius: 6px; outline: none; font: 15px 'Inter', sans-serif; transition: border-color .2s ease, box-shadow .2s ease; }
+.form-input:focus { border-color: var(--primary-maroon); box-shadow: 0 0 0 3px rgba(252,181,59,.2); }
+.saved-location { margin: -2px 0 18px; padding: 11px 13px; border-radius: 7px; color: #5f504e; background: #fff8e8; font-size: 13px; line-height: 1.5; }
+.saved-location a { color: var(--primary-maroon); font-weight: 750; }
+.form-input[readonly] { color: #665a58; background: #f4f1f0; cursor: not-allowed; }
+.payment-option { position: relative; display: flex; gap: 12px; align-items: center; margin-bottom: 10px; padding: 15px; border: 1px solid #cfc4c2; border-radius: 7px; cursor: pointer; transition: .2s ease; }
+.payment-option:hover { border-color: var(--primary-maroon); }
+.payment-option input { position: absolute; opacity: 0; pointer-events: none; }
+.payment-option:has(input:checked) { border-color: var(--accent-gold); background: #fff8e8; box-shadow: 0 0 0 2px rgba(252,181,59,.18); }
+.payment-radio { width: 18px; height: 18px; flex: 0 0 18px; border: 2px solid #a3918f; border-radius: 50%; }
+.payment-option input:checked + .payment-radio { border: 5px solid var(--primary-maroon); }
+.payment-option strong, .payment-option small { display: block; }
+.payment-option small { margin-top: 3px; color: #786966; font-weight: 400; }
+.checkout-summary { flex: 1; position: sticky; top: 20px; padding: 30px; border: 1px solid #e6dfde; border-radius: 10px; background: #fafafa; box-shadow: 0 12px 30px rgba(62,7,3,.07); }
+.summary-title { margin: 0 0 25px; padding-bottom: 15px; border-bottom: 1px solid #e4dcda; color: var(--primary-maroon); font: 20px Georgia, 'Times New Roman', serif; }
+.summary-items { max-height: 360px; margin-bottom: 25px; overflow-y: auto; }
+.summary-item { display: flex; gap: 13px; margin-bottom: 20px; }
+.summary-item-img { width: 60px; height: 80px; flex: 0 0 60px; border: 1px solid #e4dcda; border-radius: 5px; object-fit: cover; }
+.summary-item-details { flex: 1; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.summary-item-name { margin: 0 0 5px; color: var(--text-dark); font-size: 14px; font-weight: 650; }
+.summary-item-meta { margin: 0; color: #817471; font-size: 12px; }
+.summary-item-price { display: flex; align-items: center; margin: 0; color: #98640a; font-size: 14px; font-weight: 800; white-space: nowrap; }
+.stock-warning { margin: 5px 0 0; color: #a21f18; font-size: 12px; font-weight: 700; }
+.empty-checkout { display: grid; gap: 10px; padding: 18px; border-radius: 8px; background: #fff8e8; text-align: center; }
+.empty-checkout a { color: var(--primary-maroon); font-weight: 700; }
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--text-dark); font-size: 15px; }
+.summary-total { display: flex; justify-content: space-between; margin-top: 25px; padding-top: 20px; border-top: 2px solid var(--text-dark); color: var(--primary-maroon); font-size: 19px; font-weight: 800; }
+.btn-place-order { display: block; width: 100%; margin-top: 28px; padding: 16px; border: 0; border-radius: 6px; color: var(--bg-white); background: var(--primary-maroon); font-size: 15px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: .2s ease; }
+.btn-place-order:hover { color: var(--primary-maroon); background: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,.1); }
+.btn-place-order:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
+.checkout-assurance { margin: 13px 0 0; color: #81716e; font-size: 12px; line-height: 1.5; text-align: center; }
+@media (max-width: 960px) { .checkout-layout { display: grid; gap: 24px; } .checkout-summary { position: static; order: -1; } }
+@media (max-width: 640px) { .checkout-section { padding-inline: 14px; } .checkout-layout { margin-top: 20px; } .form-section { padding: 20px 16px; } .form-row { display: grid; gap: 0; } .form-group-small { max-width: none; } .checkout-summary { padding: 22px 16px; } }

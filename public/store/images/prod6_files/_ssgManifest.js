@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fv2","\u002Fv2\u002Ffeedback","\u002Fv2\u002Fsize_recommendation","\u002Fv2\u002Fstats_info_input","\u002Fv2\u002Fstats_info_update"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

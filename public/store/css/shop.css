@@ -1,0 +1,317 @@
+.shop-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.filter-options,
+.sort-options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filter-options {
+  flex: 1 1 560px;
+  flex-wrap: wrap;
+}
+
+.toolbar-label {
+  font-size: 14px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.filter-pill {
+  text-decoration: none;
+  color: var(--text-dark);
+  padding: 6px 18px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.filter-pill:hover {
+  border-color: var(--primary-maroon);
+  color: var(--primary-maroon);
+}
+
+.filter-pill.active {
+  background-color: var(--primary-maroon);
+  color: var(--bg-white);
+  border-color: var(--primary-maroon);
+}
+
+.sort-dropdown {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  cursor: pointer;
+  outline: none;
+}
+
+.sort-dropdown:focus {
+  border-color: var(--primary-maroon);
+}
+
+@media (max-width: 600px) {
+  .shop-controls {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .filter-options {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 9px;
+    padding-bottom: 5px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+  }
+
+  .filter-options .control-label,
+  .filter-pill {
+    flex: 0 0 auto;
+  }
+
+  .filter-pill {
+    padding: 6px 15px;
+  }
+
+  .sort-options {
+    width: 100%;
+  }
+
+  .sort-dropdown {
+    min-width: 0;
+    flex: 1;
+  }
+}
+
+/* The Modal Background Overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+/* The Modal Content Box */
+.modal-content {
+  background-color: #fefefe;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  color: #888;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--primary-maroon, #800000);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.variant-grid-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 25px 0;
+}
+
+.variant-column {
+  flex: 1;
+}
+
+.variant-label {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.selected-text {
+  font-weight: bold;
+  color: var(--ink);
+}
+
+.custom-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* -----------------------------------
+  COLOR SWATCH STYLES
+----------------------------------- */
+.color-swatch-label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-grid;
+  gap: 5px;
+  justify-items: center;
+  min-width: 54px;
+}
+.color-swatch-label input[type="radio"] {
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+}
+.color-swatch {
+  display: block;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.color-swatch-label input[type="radio"]:checked + .color-swatch {
+  border: 2px solid #000;
+  transform: scale(1.1);
+}
+
+/* -----------------------------------
+  SIZE BOX STYLES
+----------------------------------- */
+.size-box-label {
+  cursor: pointer;
+}
+.size-box-label input[type="radio"] {
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.color-swatch-label:focus-within .color-swatch,
+.size-box-label:focus-within .size-box {
+  outline: 3px solid rgba(97, 0, 0, 0.35);
+  outline-offset: 3px;
+}
+.size-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 45px;
+  height: 45px;
+  padding: 0 10px;
+  background-color: #fff;
+  border: 1px solid #999;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.size-box-label input[type="radio"]:checked + .size-box {
+  background-color: #2d2926;
+  color: #fff;
+  border-color: #2d2926;
+  box-shadow:
+    0 0 0 2px #fff inset,
+    0 0 0 3px #2d2926;
+}
+
+.color-name {
+  color: #4d4d4d;
+  font-size: 0.72rem;
+  line-height: 1.1;
+  max-width: 64px;
+  text-align: center;
+}
+
+.color-swatch-label input[type="radio"]:checked ~ .color-name {
+  color: var(--maroon);
+  font-weight: 800;
+}
+
+.size-box-label.is-unavailable {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.size-box-label.is-unavailable .size-box {
+  text-decoration: line-through;
+}
+
+/* -----------------------------------
+  SUBMIT BUTTON
+----------------------------------- */
+.btn-cart-submit {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--maroon);
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-cart-submit:hover {
+  background-color: var(--gold);
+  color: var(--maroon);
+}
+
+/* Outlined version for the Add to Cart button */
+.btn-cart-submit.btn-outline {
+  background-color: transparent;
+  color: var(--maroon);
+  border: 2px solid var(--maroon);
+}
+
+.btn-cart-submit.btn-outline:hover {
+  background-color: var(--maroon);
+  color: var(--white);
+}
+
+.btn-favorite-card.is-favorited .heart-icon {
+  opacity: 1;
+  filter: invert(16%) sepia(99%) saturate(7404%) hue-rotate(355deg)
+    brightness(96%) contrast(113%);
+}

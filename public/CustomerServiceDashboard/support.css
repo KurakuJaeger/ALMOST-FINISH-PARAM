@@ -1,0 +1,59 @@
+.support-list {
+  display: grid;
+  gap: 18px;
+}
+.support-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+}
+.support-card h3 {
+  color: var(--maroon);
+  margin: 0 0 10px;
+}
+.support-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+.support-meta p {
+  margin: 0;
+}
+.support-form {
+  display: grid;
+  grid-template-columns: 180px minmax(260px, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+}
+.refund-form {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+}
+textarea {
+  border: 1px solid #d7cec8;
+  border-radius: 4px;
+  font: inherit;
+  min-height: 76px;
+  padding: 8px;
+  width: 100%;
+}
+.empty-state {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .support-meta,
+  .support-form,
+  .refund-form {
+    grid-template-columns: 1fr;
+  }
+}

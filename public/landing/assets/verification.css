@@ -1,0 +1,205 @@
+:root {
+    --param-wine: #4a0704;
+    --param-wine-dark: #280201;
+    --param-gold: #f5ad2e;
+    --param-cream: #fff8e8;
+    --param-ink: #271817;
+    --param-muted: #705f5d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--param-ink);
+    background:
+        radial-gradient(circle at 15% 10%, rgba(245, 173, 46, .2), transparent 34rem),
+        linear-gradient(135deg, var(--param-wine-dark), var(--param-wine));
+    font-family: Inter, Arial, sans-serif;
+}
+
+.verification-shell {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 2rem 1rem;
+}
+
+.verification-card {
+    width: min(100%, 34rem);
+    padding: clamp(2rem, 6vw, 3.5rem);
+    border: 1px solid rgba(74, 7, 4, .12);
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, .97);
+    box-shadow: 0 1.5rem 5rem rgba(20, 0, 0, .35);
+    text-align: center;
+}
+
+.verification-brand {
+    display: inline-block;
+    margin-bottom: 1.75rem;
+}
+
+.verification-brand img {
+    display: block;
+    width: 8.5rem;
+    max-height: 4rem;
+    object-fit: contain;
+}
+
+.verification-icon {
+    width: 4.25rem;
+    height: 4.25rem;
+    margin: 0 auto 1.25rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--param-wine);
+    background: var(--param-cream);
+    border: 1px solid rgba(245, 173, 46, .45);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.verification-icon-success {
+    color: #17633a;
+    background: #ecfff4;
+    border-color: #a9dfbf;
+}
+
+.verification-icon-error {
+    color: #9d1c16;
+    background: #fff0ef;
+    border-color: #efb1ad;
+}
+
+.verification-eyebrow {
+    display: block;
+    margin-bottom: .6rem;
+    color: var(--param-wine);
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.verification-card h1 {
+    margin: 0;
+    color: var(--param-wine-dark);
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 7vw, 3rem);
+    line-height: 1.05;
+}
+
+.verification-card p {
+    margin: 1rem auto 1.5rem;
+    color: var(--param-muted);
+    line-height: 1.65;
+}
+
+.verification-button {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 3.25rem;
+    padding: .8rem 1.25rem;
+    border: 0;
+    border-radius: .75rem;
+    color: #fff;
+    background: var(--param-wine);
+    box-shadow: 0 .6rem 1.25rem rgba(74, 7, 4, .2);
+    font: inherit;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.verification-button:hover,
+.verification-button:focus-visible {
+    background: var(--param-wine-dark);
+    transform: translateY(-1px);
+}
+
+.verification-form {
+    display: grid;
+    gap: .75rem;
+    text-align: left;
+}
+
+.verification-form label {
+    color: var(--param-wine-dark);
+    font-size: .85rem;
+    font-weight: 800;
+}
+
+.verification-form input {
+    width: 100%;
+    min-height: 3.15rem;
+    padding: .75rem .9rem;
+    border: 1px solid #cdbfbd;
+    border-radius: .7rem;
+    color: var(--param-ink);
+    background: #fff;
+    font: inherit;
+}
+
+.verification-form input:focus {
+    outline: 3px solid rgba(245, 173, 46, .28);
+    border-color: var(--param-gold);
+}
+
+.verification-form .verification-button {
+    margin-top: .5rem;
+}
+
+.verification-notice {
+    margin: 0 0 1.25rem;
+    padding: .9rem 1rem;
+    border-radius: .75rem;
+    font-size: .9rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.verification-notice-success {
+    color: #165b36;
+    background: #edfff4;
+    border: 1px solid #b5e3c7;
+}
+
+.verification-notice-error {
+    color: #851b16;
+    background: #fff0ef;
+    border: 1px solid #f0b5b1;
+}
+
+.verification-notice-info {
+    color: #69450a;
+    background: #fff8e8;
+    border: 1px solid #f0d49c;
+}
+
+.verification-links {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.verification-links a {
+    color: var(--param-wine);
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+@media (max-width: 32rem) {
+    .verification-card {
+        padding: 2rem 1.25rem;
+        border-radius: 1rem;
+    }
+}
