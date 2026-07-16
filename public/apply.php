@@ -146,7 +146,7 @@ function oldApplicationValue(string $key): string
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply to PARAM</title>
     <meta name="description" content="Submit an application for an available PARAM staff role.">
-    <link rel="stylesheet" href="<?= htmlspecialchars(appUrl('landing/assets/landing.css')) ?>">
+    <link rel="stylesheet" href="<?= htmlspecialchars(appUrl('landing/assets/landing.css') . '?v=' . filemtime(__DIR__ . '/landing/assets/landing.css')) ?>">
 </head>
 <body>
 <?php require __DIR__ . '/landing/includes/header.php'; ?>

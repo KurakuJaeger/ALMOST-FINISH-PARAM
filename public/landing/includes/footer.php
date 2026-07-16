@@ -27,6 +27,6 @@
     </div>
 </footer>
 
-<script src="<?= htmlspecialchars(appUrl('landing/assets/landing.js')) ?>"></script>
+<script src="<?= htmlspecialchars(appUrl('landing/assets/landing.js') . '?v=' . filemtime(__DIR__ . '/../assets/landing.js')) ?>"></script>
 </body>
 </html>

@@ -153,6 +153,64 @@ body {
   border-color: #FCB53B;
 }
 
+/* Login-style password visibility controls */
+.profile-password-field {
+  position: relative;
+}
+
+.profile-password-field > svg {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: #8A7C74;
+  stroke-width: 1.7;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.form-group .profile-password-field input {
+  min-height: 54px;
+  padding: 0 68px 0 47px;
+  border-color: #CFC2B8;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.form-group .profile-password-field input:focus {
+  background: #F1F6FF;
+  border-color: #3E0703;
+  box-shadow: 0 0 0 4px rgba(62, 7, 3, 0.08);
+}
+
+.profile-password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  padding: 5px;
+  color: #3E0703;
+  background: transparent;
+  border: 0;
+  font-size: 0.76rem;
+  font-weight: 800;
+  cursor: pointer;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.profile-password-toggle:hover,
+.profile-password-toggle:focus-visible {
+  color: #9A6500;
+}
+
+.profile-password-toggle:focus-visible {
+  outline: 2px solid #FCB53B;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
 /* Save Button */
 .btn-save {
   background-color: #3E0703;

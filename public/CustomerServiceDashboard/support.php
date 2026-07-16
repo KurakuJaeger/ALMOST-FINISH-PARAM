@@ -22,8 +22,8 @@ $currentUserName = trim(
     >
     <meta name="app-base-url" content="<?= htmlspecialchars(rtrim(appUrl(), '/'), ENT_QUOTES, 'UTF-8') ?>">
     <title>Param Customer Service</title>
-    <link rel="stylesheet" href="<?= htmlspecialchars(appUrl('AdminDashboard/admin.css'), ENT_QUOTES, 'UTF-8') ?>">
-    <link rel="stylesheet" href="<?= htmlspecialchars(appUrl('CustomerServiceDashboard/support.css'), ENT_QUOTES, 'UTF-8') ?>">
+    <link rel="stylesheet" href="<?= htmlspecialchars(appUrl('AdminDashboard/admin.css') . '?v=' . filemtime(__DIR__ . '/../AdminDashboard/admin.css'), ENT_QUOTES, 'UTF-8') ?>">
+    <link rel="stylesheet" href="<?= htmlspecialchars(appUrl('CustomerServiceDashboard/support.css') . '?v=' . filemtime(__DIR__ . '/support.css'), ENT_QUOTES, 'UTF-8') ?>">
 </head>
 <body>
     <header class="site-header">

@@ -37,9 +37,10 @@ body {
 .navbar {
   position: relative;
   z-index: 50;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) auto minmax(150px, 1fr);
   align-items: center;
+  gap: 24px;
   padding: 20px 50px;
   background-color: var(--bg-white);
   border-bottom: 1px solid #ddd;
@@ -53,6 +54,7 @@ body {
 }
 
 .logo {
+  justify-self: start;
   font-size: 32px;
   font-weight: bold;
   color: var(--primary-maroon);
@@ -87,9 +89,17 @@ body {
   display: flex;
   gap: 15px;
   align-items: center;
+  justify-self: end;
 }
 
 .nav-icons a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
   text-decoration: none;
   color: var(--primary-maroon);
   font-size: 18px;
@@ -131,7 +141,6 @@ body {
 .active-icon img {
   filter: drop-shadow(0px 4px 8px rgba(252, 181, 56, 1))
     drop-shadow(0px 2px 3px rgba(62, 7, 3, 0.4));
-  transform: scale(1.25);
   transition: all 0.3s ease;
   transform: scale(1.1);
 }
@@ -242,9 +251,9 @@ body {
   justify-content: center;
   width: 36px;
   height: 36px;
-  background-color: var(--bg-white);
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
   position: relative;
 }
 .nav-fav-button .heart-icon {
@@ -464,6 +473,7 @@ body {
 
   .navbar {
     position: relative;
+    display: flex;
     gap: 16px;
     padding: 16px 24px;
   }
@@ -609,14 +619,15 @@ body {
   position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   vertical-align: middle;
 }
 
 /* The visual bubble */
 .nav-badge {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: -3px;
+  right: -3px;
   background-color: var(--maroon);
   color: #ffffff;
   font-size: 11px;

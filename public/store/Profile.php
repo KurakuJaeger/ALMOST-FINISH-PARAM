@@ -27,8 +27,8 @@ $profilePic = !empty($profile['profile_image_path']) ? appUrl($profile['profile_
 <head>
   <meta charset="UTF-8">
   <title>My Profile - Param Clothing</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/Profile.css">
+  <link rel="stylesheet" href="css/style.css?v=<?= (int) filemtime(__DIR__ . '/css/style.css') ?>">
+  <link rel="stylesheet" href="css/Profile.css?v=<?= (int) filemtime(__DIR__ . '/css/Profile.css') ?>">
 </head>
 
 <body>
@@ -127,18 +127,30 @@ $profilePic = !empty($profile['profile_image_path']) ? appUrl($profile['profile_
         <form action="<?= htmlspecialchars(appUrl('store/update_password.php')) ?>" method="POST">
           <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrfToken()) ?>">
           <div class="form-group">
-            <label>Current Password</label>
-            <input type="password" name="current_password" autocomplete="current-password" required>
+            <label for="current-password">Current Password</label>
+            <div class="profile-password-field">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+              <input id="current-password" type="password" name="current_password" autocomplete="current-password" required>
+              <button class="profile-password-toggle" type="button" aria-controls="current-password" aria-pressed="false">Show</button>
+            </div>
           </div>
 
           <div class="form-group">
-            <label>New Password</label>
-            <input type="password" name="new_password" minlength="8" autocomplete="new-password" required>
+            <label for="new-password">New Password</label>
+            <div class="profile-password-field">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+              <input id="new-password" type="password" name="new_password" minlength="8" autocomplete="new-password" required>
+              <button class="profile-password-toggle" type="button" aria-controls="new-password" aria-pressed="false">Show</button>
+            </div>
           </div>
 
           <div class="form-group">
-            <label>Confirm New Password</label>
-            <input type="password" name="confirm_password" minlength="8" autocomplete="new-password" required>
+            <label for="confirm-password">Confirm New Password</label>
+            <div class="profile-password-field">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+              <input id="confirm-password" type="password" name="confirm_password" minlength="8" autocomplete="new-password" required>
+              <button class="profile-password-toggle" type="button" aria-controls="confirm-password" aria-pressed="false">Show</button>
+            </div>
           </div>
 
           <button type="submit" class="btn-save">Update Password</button>
@@ -171,6 +183,18 @@ $profilePic = !empty($profile['profile_image_path']) ? appUrl($profile['profile_
     if (new URLSearchParams(window.location.search).get('section') === 'password') {
       showSection('update-password');
     }
+
+    document.querySelectorAll('.profile-password-toggle').forEach(function (toggle) {
+      var passwordInput = document.getElementById(toggle.getAttribute('aria-controls'));
+      if (!passwordInput) return;
+
+      toggle.addEventListener('click', function () {
+        var isVisible = passwordInput.type === 'text';
+        passwordInput.type = isVisible ? 'password' : 'text';
+        toggle.textContent = isVisible ? 'Show' : 'Hide';
+        toggle.setAttribute('aria-pressed', String(!isVisible));
+      });
+    });
   </script>
 
   <script src="<?= htmlspecialchars(appUrl('assets/location-selects.js') . '?v=' . filemtime(dirname(__DIR__) . '/assets/location-selects.js')) ?>"></script>

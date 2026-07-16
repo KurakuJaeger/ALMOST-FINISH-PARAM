@@ -41,7 +41,6 @@ if (isset($_SESSION['user_id'], $pdo)) {
     </div>
 
     <nav class="nav-links" id="store-navigation" aria-label="Storefront navigation">
-        <a href="<?= htmlspecialchars(appUrl('store')) ?>" <?= $currentPage === 'index.php' ? 'class="active-link"' : '' ?>>Store Home</a>
         <a href="<?= htmlspecialchars(appUrl('store/shop.php')) ?>" <?= $currentPage === 'shop.php' ? 'class="active-link"' : '' ?>>Shop</a>
         <a href="<?= htmlspecialchars(appUrl('store/AboutUs.php')) ?>" <?= $currentPage === 'AboutUs.php' ? 'class="active-link"' : '' ?>>About</a>
         <a href="<?= htmlspecialchars(appUrl('store/ContactUs.php')) ?>" <?= $currentPage === 'ContactUs.php' ? 'class="active-link"' : '' ?>>Contact</a>

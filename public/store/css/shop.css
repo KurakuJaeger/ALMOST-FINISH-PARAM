@@ -315,3 +315,32 @@
   filter: invert(16%) sepia(99%) saturate(7404%) hue-rotate(355deg)
     brightness(96%) contrast(113%);
 }
+.search-results-label {
+    margin: -24px 0 28px;
+    text-align: center;
+    color: #746b66;
+}
+
+.empty-search-results {
+    grid-column: 1 / -1;
+    padding: 48px 20px;
+    text-align: center;
+    border: 1px solid #e8dfd7;
+    border-radius: 10px;
+    background: #fff9ec;
+}
+
+.empty-search-results h3 {
+    margin: 0 0 8px;
+    color: #3e0703;
+}
+
+.empty-search-results p {
+    margin: 0 0 18px;
+    color: #746b66;
+}
+
+.empty-search-results a {
+    color: #3e0703;
+    font-weight: 700;
+}

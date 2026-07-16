@@ -31,7 +31,7 @@ foreach ($cart_items as $item) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Param. | Your Shopping Cart</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=<?= (int) filemtime(__DIR__ . '/css/style.css') ?>">
     <link rel="stylesheet" href="css/cart.css">
 </head>
 
@@ -77,7 +77,7 @@ foreach ($cart_items as $item) {
                                             <button type="button" class="btn-qty-plus">+</button>
                                         </div>
 
-                                        <a href="RemoveFromCart.php?id=<?php echo $item['cart_item_id']; ?>" class="btn-remove"
+                                        <a href="removeFromCart.php?id=<?php echo $item['cart_item_id']; ?>" class="btn-remove"
                                             style="text-decoration: none;">Remove</a>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@ foreach ($cart_items as $item) {
 
                     } else if (currentValue === 1) {
                         let cartItemId = input.id.split('_')[1];
-                        window.location.href = 'RemoveFromCart.php?id=' + cartItemId;
+                        window.location.href = 'removeFromCart.php?id=' + cartItemId;
                     }
                 });
             });

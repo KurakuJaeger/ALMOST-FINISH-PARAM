@@ -1,4 +1,7 @@
-<?php require_once dirname(__DIR__, 3) . '/src/config/app.php'; ?>
+<?php
+require_once dirname(__DIR__, 3) . '/src/config/app.php';
+$isApplyPage = basename($_SERVER['PHP_SELF'] ?? '') === 'apply.php';
+?>
 <header class="landing-header">
     <div class="container landing-navbar">
         <a class="landing-brand" href="<?= htmlspecialchars(appUrl()) ?>" aria-label="PARAM home">
@@ -13,7 +16,7 @@
                 <a href="<?= htmlspecialchars(appUrl('#about')) ?>">About</a>
                 <a href="<?= htmlspecialchars(appUrl('#team')) ?>">Team</a>
                 <a href="<?= htmlspecialchars(appUrl('#services')) ?>">Why PARAM</a>
-                <a href="<?= htmlspecialchars(appUrl('apply')) ?>">Apply</a>
+                <a href="<?= htmlspecialchars(appUrl('apply')) ?>"<?= $isApplyPage ? ' class="is-active" aria-current="page"' : '' ?>>Apply</a>
             </nav>
 
             <div class="landing-nav-actions">

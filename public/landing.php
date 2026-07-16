@@ -22,7 +22,7 @@ if ($publicDatabase) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PARAM | Designed for everyday life</title>
     <meta name="description" content="PARAM creates comfortable, timeless clothing for women, men, and kids.">
-    <link rel="stylesheet" href="<?= htmlspecialchars(appUrl('landing/assets/landing.css')) ?>">
+    <link rel="stylesheet" href="<?= htmlspecialchars(appUrl('landing/assets/landing.css') . '?v=' . filemtime(__DIR__ . '/landing/assets/landing.css')) ?>">
 </head>
 <body>
     <?php require __DIR__ . '/landing/includes/header.php'; ?>

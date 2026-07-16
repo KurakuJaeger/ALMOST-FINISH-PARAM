@@ -1,3 +1,18 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.seller-layout {
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  margin-top: auto;
+}
+
 .support-list {
   display: grid;
   gap: 18px;

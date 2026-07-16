@@ -15,6 +15,53 @@ if (menuButton && menuPanel) {
     });
 }
 
+// Keep the navigation link for the section currently under the header highlighted.
+const sectionLinks = Array.from(document.querySelectorAll('.landing-nav-links a[href*="#"]'));
+const trackedSections = sectionLinks.map(function (link) {
+    const sectionId = new URL(link.href, window.location.href).hash.slice(1);
+    return { link: link, section: document.getElementById(sectionId) };
+}).filter(function (item) {
+    return item.section;
+});
+
+function updateActiveSection() {
+    const header = document.querySelector('.landing-header');
+    const marker = (header ? header.offsetHeight : 0) + 40;
+    let activeItem = null;
+
+    trackedSections.forEach(function (item) {
+        if (item.section.getBoundingClientRect().top <= marker) {
+            activeItem = item;
+        }
+    });
+
+    trackedSections.forEach(function (item) {
+        const isActive = item === activeItem;
+        item.link.classList.toggle('is-active', isActive);
+        if (isActive) {
+            item.link.setAttribute('aria-current', 'location');
+        } else {
+            item.link.removeAttribute('aria-current');
+        }
+    });
+}
+
+if (trackedSections.length > 0) {
+    let scrollUpdatePending = false;
+    function requestSectionUpdate() {
+        if (scrollUpdatePending) return;
+        scrollUpdatePending = true;
+        window.requestAnimationFrame(function () {
+            updateActiveSection();
+            scrollUpdatePending = false;
+        });
+    }
+
+    updateActiveSection();
+    window.addEventListener('scroll', requestSectionUpdate, { passive: true });
+    window.addEventListener('resize', requestSectionUpdate);
+}
+
 const revealItems = document.querySelectorAll('.reveal');
 
 if ('IntersectionObserver' in window) {

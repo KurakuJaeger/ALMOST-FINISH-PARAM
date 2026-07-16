@@ -34,7 +34,7 @@
     <div class="search-container">
         <button id="close-search" class="btn-close-search" type="button" aria-label="Close search">&times;</button>
         <form action="<?= htmlspecialchars(appUrl('store/shop.php')) ?>" method="GET" class="search-form">
-            <input type="search" name="query" class="search-input" placeholder="Search products or categories...">
+            <input type="search" name="query" class="search-input" value="<?= htmlspecialchars(trim((string) ($_GET['query'] ?? ''))) ?>" placeholder="Search products or categories..." maxlength="100" aria-label="Search products or categories">
             <button type="submit" class="btn-search-submit">Search</button>
         </form>
     </div>

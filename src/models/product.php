@@ -21,7 +21,12 @@ class Product
         )->fetchAll();
     }
 
-    public static function catalog(int $categoryId = 0, string $sort = 'featured', ?PDO $database = null): array
+    public static function catalog(
+        int $categoryId = 0,
+        string $sort = 'featured',
+        ?PDO $database = null,
+        string $searchTerm = ''
+    ): array
     {
         $database ??= getDbConnection();
         $orderBy = match ($sort) {
@@ -35,12 +40,19 @@ class Product
                   JOIN categories c ON c.category_id = p.category_id
                   LEFT JOIN product_variants v ON v.product_id = p.product_id AND v.status = 'active'
                   WHERE p.status = 'active'";
+        $parameters = [];
         if ($categoryId > 0) {
             $query .= ' AND p.category_id = :category_id';
+            $parameters['category_id'] = $categoryId;
+        }
+        if ($searchTerm !== '') {
+            $query .= ' AND (p.product_name LIKE :search_product OR c.category_name LIKE :search_category)';
+            $parameters['search_product'] = '%' . $searchTerm . '%';
+            $parameters['search_category'] = '%' . $searchTerm . '%';
         }
         $query .= " GROUP BY p.product_id, p.product_name, p.image_path, c.category_name ORDER BY {$orderBy}";
         $statement = $database->prepare($query);
-        $statement->execute($categoryId > 0 ? ['category_id' => $categoryId] : []);
+        $statement->execute($parameters);
         return $statement->fetchAll();
     }
 
@@ -68,4 +80,3 @@ class Product
         return $statement->fetchAll();
     }
 }
-

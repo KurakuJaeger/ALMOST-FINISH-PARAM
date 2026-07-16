@@ -16,7 +16,9 @@ if (isset($_SESSION['user_id'])) {
 $cat = isset($_GET['cat']) ? max(0, (int) $_GET['cat']) : 0;
 $requestedSort = (string) ($_GET['sort'] ?? 'featured');
 $sort = in_array($requestedSort, ['featured', 'price_asc', 'price_desc'], true) ? $requestedSort : 'featured';
-$products = Product::catalog($cat, $sort, $pdo);
+$searchTerm = trim((string) ($_GET['query'] ?? ''));
+$searchTerm = substr($searchTerm, 0, 100);
+$products = Product::catalog($cat, $sort, $pdo, $searchTerm);
 $categories = Product::categories($pdo);
 ?>
 
@@ -41,6 +43,12 @@ $categories = Product::categories($pdo);
 
         <section class="product-section">
             <h2 class="section-title">Our Products</h2>
+            <?php if ($searchTerm !== ''): ?>
+                <p class="search-results-label">
+                    <?= count($products) ?> result<?= count($products) === 1 ? '' : 's' ?> for
+                    <strong>&ldquo;<?= htmlspecialchars($searchTerm) ?>&rdquo;</strong>
+                </p>
+            <?php endif; ?>
 
             <div class="shop-controls">
                 <div class="filter-options">
@@ -49,9 +57,9 @@ $categories = Product::categories($pdo);
                     $active_cat = isset($_GET['cat']) ? (int) $_GET['cat'] : 0;
                     ?>
 
-                    <a href="?cat=0&amp;sort=<?= urlencode($sort) ?>" class="filter-pill <?= $active_cat === 0 ? 'active' : '' ?>">All</a>
+                    <a href="?<?= htmlspecialchars(http_build_query(['cat' => 0, 'sort' => $sort, 'query' => $searchTerm])) ?>" class="filter-pill <?= $active_cat === 0 ? 'active' : '' ?>">All</a>
                     <?php foreach ($categories as $category): ?>
-                        <a href="?cat=<?= (int) $category['category_id'] ?>&amp;sort=<?= urlencode($sort) ?>"
+                        <a href="?<?= htmlspecialchars(http_build_query(['cat' => (int) $category['category_id'], 'sort' => $sort, 'query' => $searchTerm])) ?>"
                             class="filter-pill <?= $active_cat === (int) $category['category_id'] ? 'active' : '' ?>">
                             <?= htmlspecialchars($category['category_name']) ?>
                         </a>
@@ -60,8 +68,7 @@ $categories = Product::categories($pdo);
 
                 <div class="sort-options">
                     <span class="control-label">Sort:</span>
-                    <select class="sort-dropdown"
-                        onchange="window.location.href='?cat=<?php echo $_GET['cat'] ?? 0; ?>&sort='+this.value">
+                    <select class="sort-dropdown" id="product-sort">
                         <option value="featured">Featured</option>
                         <option value="price_asc" <?php echo (isset($_GET['sort']) && $_GET['sort'] == 'price_asc') ? 'selected' : ''; ?>>Price: Low to High</option>
                         <option value="price_desc" <?php echo (isset($_GET['sort']) && $_GET['sort'] == 'price_desc') ? 'selected' : ''; ?>>Price: High to Low</option>
@@ -70,7 +77,13 @@ $categories = Product::categories($pdo);
             </div>
 
             <div class="product-grid">
-
+                <?php if (empty($products)): ?>
+                    <div class="empty-search-results">
+                        <h3>No matching products</h3>
+                        <p>Try another product name or category.</p>
+                        <a href="shop.php">View all products</a>
+                    </div>
+                <?php endif; ?>
                 <?php foreach ($products as $item): ?>
                     <?php
                     $is_faved = in_array($item['product_id'], $user_favorites);
@@ -115,6 +128,13 @@ $categories = Product::categories($pdo);
     </div>
 
     <script>
+        document.getElementById('product-sort')?.addEventListener('change', function () {
+            const params = new URLSearchParams(window.location.search);
+            params.set('cat', <?= json_encode((string) $cat) ?>);
+            params.set('sort', this.value);
+            window.location.href = 'shop.php?' + params.toString();
+        });
+
         document.querySelectorAll('.btn-favorite-card').forEach(button => {
             button.addEventListener('click', function (e) {
                 e.preventDefault();

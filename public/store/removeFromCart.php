@@ -16,7 +16,8 @@ if (isset($_GET['id'])) {
     DELETE FROM cart_items 
         WHERE cart_item_id = :cart_item_id 
         AND cart_id IN (
-            SELECT cart_id FROM carts WHERE user_id = :user_id
+            SELECT cart_id FROM carts
+            WHERE user_id = :user_id AND status = 'active'
         )
     ");
     

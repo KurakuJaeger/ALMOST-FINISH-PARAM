@@ -104,9 +104,21 @@ textarea:focus-visible {
   text-decoration: none;
 }
 
+.landing-nav-links a {
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
 .landing-nav-links a:hover,
-.landing-login-link:hover {
-  color: var(--maroon);
+.landing-nav-links a:focus-visible,
+.landing-nav-links a.is-active,
+.landing-login-link:hover,
+.landing-login-link:focus-visible {
+  color: var(--gold);
+}
+
+.landing-nav-links a.is-active {
+  border-bottom: 2px solid var(--gold);
 }
 
 .compact-button {
